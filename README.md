@@ -37,14 +37,14 @@ WKAwesomeMenu(rootViewController: rootVC, menuViewController: menuVC, options: o
 
 ### Options
 
-```
-var backgroundImage
-var cornerRadius
-var shadowColor
-var shadowOffset
-var shadowScale
-var rootScale
-var menuWidth
-var menuParallax
-var menuGripWidth
+```swift
+var backgroundImage: UIImage?
+var cornerRadius: CGFloat
+var shadowColor: UIColor
+var shadowOffset: CGPoint
+var shadowScale: CGFloat
+var rootScale: CGFloat
+var menuWidth: CGFloat
+var menuParallax: CGFloat
+var menuGripWidth: CGFloat
 ```
