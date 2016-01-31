@@ -16,7 +16,7 @@ public class WKAwesomeMenu: UIViewController {
     
     private var menuViewController: UIViewController!
     
-    private var rootView: UIView!
+    private var rootView: UIView! // TODO: fix no user interaction while menu is open
     
     private var menuView: UIView!
     
@@ -123,6 +123,7 @@ public class WKAwesomeMenu: UIViewController {
             toItem: self.view, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0))
         
         let tap = UITapGestureRecognizer(target: self, action: "closeMenu")
+        tap.cancelsTouchesInView = false
         self.rootView.addGestureRecognizer(tap)
     }
     
