@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
     s.name = 'WKAwesomeMenu'
-    s.version = '1.0.2'
+    s.version = '1.0.3'
     s.platform = :ios, '8.0'
     s.license = 'MIT'
     s.homepage = 'https://github.com/wonderkiln/WKAwesomeMenu'
