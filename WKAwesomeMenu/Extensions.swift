@@ -23,6 +23,9 @@ extension UIViewController {
     }
     
     var awesomeMenu: WKAwesomeMenu? {
+        if let nc = self.parentViewController as? UINavigationController {
+            return nc.parentViewController as? WKAwesomeMenu
+        }
         return self.parentViewController as? WKAwesomeMenu
     }
     

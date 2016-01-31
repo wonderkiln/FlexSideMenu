@@ -20,11 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let rootVC = UIViewController()
         rootVC.view.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.98, alpha:1)
-        rootVC.title = "YOUR PROFILE"
+        rootVC.title = "HOME"
         rootVC.navigationItem.leftBarButtonItem = UIBarButtonItem(image: Image.menuImage,
             style: UIBarButtonItemStyle.Plain, target: self, action: "menu")
-        rootVC.navigationItem.rightBarButtonItem = UIBarButtonItem(image: Image.addImage,
-            style: UIBarButtonItemStyle.Plain, target: self, action: "add")
         
         let rootNC = UINavigationController(rootViewController: rootVC)
         
@@ -53,10 +51,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func menu() {
         self.awesomeMenu.openMenu()
-    }
-    
-    func add() {
-        //
     }
 
 }

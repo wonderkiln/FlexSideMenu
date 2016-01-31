@@ -16,7 +16,7 @@ public class WKAwesomeMenu: UIViewController {
     
     private var menuViewController: UIViewController!
     
-    private var rootView: UIView!
+    private var rootView: UIView! // TODO: fix no user interaction while menu is open
     
     private var menuView: UIView!
     
@@ -39,6 +39,7 @@ public class WKAwesomeMenu: UIViewController {
     var isClosed: Bool = true {
         didSet {
             self.lightStatusBar = !self.isClosed
+            self.rootView?.userInteractionEnabled = self.isClosed
         }
     }
     
@@ -67,6 +68,9 @@ public class WKAwesomeMenu: UIViewController {
         pan.minimumNumberOfTouches = 1
         pan.maximumNumberOfTouches = 1
         self.view.addGestureRecognizer(pan)
+        
+        let tap = UITapGestureRecognizer(target: self, action: "closeMenu")
+        self.shadowView.addGestureRecognizer(tap)
     }
     
     func setupUI() {
@@ -121,9 +125,6 @@ public class WKAwesomeMenu: UIViewController {
             toItem: self.view, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 0))
         self.view.addConstraint(NSLayoutConstraint(item: self.rootView, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal,
             toItem: self.view, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0))
-        
-        let tap = UITapGestureRecognizer(target: self, action: "closeMenu")
-        self.rootView.addGestureRecognizer(tap)
     }
     
     // MARK: - Internal
