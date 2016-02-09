@@ -13,27 +13,20 @@ import WKAwesomeMenu
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    
-    var awesomeMenu: WKAwesomeMenu!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        let rootVC = UIViewController()
-        rootVC.view.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.98, alpha:1)
-        rootVC.title = "HOME"
-        rootVC.navigationItem.leftBarButtonItem = UIBarButtonItem(image: Image.menuImage,
-            style: UIBarButtonItemStyle.Plain, target: self, action: "menu")
-        
+        let rootVC = MainTableViewController()
         let rootNC = UINavigationController(rootViewController: rootVC)
         
         let menuVC = MenuTableViewController()
         
         var options = WKAwesomeMenuOptions.defaultOptions()
         options.backgroundImage = UIImage(named: "bg")
-        self.awesomeMenu = WKAwesomeMenu(rootViewController: rootNC, menuViewController: menuVC, options: options)
+        let awesomeMenu = WKAwesomeMenu(rootViewController: rootNC, menuViewController: menuVC, options: options)
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.awesomeMenu
+        self.window?.rootViewController = awesomeMenu
         self.window?.makeKeyAndVisible()
         
         UINavigationBar.appearance().translucent = false
@@ -47,10 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ]
         
         return true
-    }
-    
-    func menu() {
-        self.awesomeMenu.openMenu()
     }
 
 }

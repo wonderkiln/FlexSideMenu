@@ -62,6 +62,10 @@ public class WKAwesomeMenu: UIViewController {
         root.didMoveToParentViewController(self)
         menu.didMoveToParentViewController(self)
         
+        // Disable top to scroll up for the menu
+        // in order to scroll the root view controller
+        (menu as? UITableViewController)?.tableView.scrollsToTop = false
+        
         self.setupUI()
         
         let pan = UIPanGestureRecognizer(target: self, action: "pan:")

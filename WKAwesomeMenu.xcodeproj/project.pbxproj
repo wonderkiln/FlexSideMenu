@@ -13,6 +13,7 @@
 		3A1F72DB1C5CADF2004418D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A1F72DA1C5CADF2004418D7 /* Assets.xcassets */; };
 		3A1F72DE1C5CADF2004418D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A1F72DC1C5CADF2004418D7 /* LaunchScreen.storyboard */; };
 		3A1F72E31C5CAFD2004418D7 /* WKAwesomeMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1F72C01C5CAB3B004418D7 /* WKAwesomeMenu.framework */; };
+		3A4EF5DC1C6A0D0400BD363E /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4EF5DB1C6A0D0400BD363E /* MainTableViewController.swift */; };
 		3A7739DC1C5D19E500B657D1 /* ProgressTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7739DB1C5D19E500B657D1 /* ProgressTimer.swift */; };
 		3A7739DE1C5D19F800B657D1 /* WKAwesomeMenuOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7739DD1C5D19F800B657D1 /* WKAwesomeMenuOptions.swift */; };
 		3AFC5E811C5CBCCC00606EE5 /* WKAwesomeMenu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1F72C01C5CAB3B004418D7 /* WKAwesomeMenu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -59,6 +60,7 @@
 		3A1F72DA1C5CADF2004418D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A1F72DD1C5CADF2004418D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A1F72DF1C5CADF2004418D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A4EF5DB1C6A0D0400BD363E /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		3A7739DB1C5D19E500B657D1 /* ProgressTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressTimer.swift; sourceTree = "<group>"; };
 		3A7739DD1C5D19F800B657D1 /* WKAwesomeMenuOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKAwesomeMenuOptions.swift; sourceTree = "<group>"; };
 		3AFC5E851C5CD5DF00606EE5 /* MenuItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItems.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				3A1F72DA1C5CADF2004418D7 /* Assets.xcassets */,
 				3A1F72DF1C5CADF2004418D7 /* Info.plist */,
 				3A1F72DC1C5CADF2004418D7 /* LaunchScreen.storyboard */,
+				3A4EF5DB1C6A0D0400BD363E /* MainTableViewController.swift */,
 				3AFC5E851C5CD5DF00606EE5 /* MenuItems.swift */,
 				3AFC5E861C5CD5DF00606EE5 /* MenuTableViewCell.swift */,
 				3AFC5E871C5CD5DF00606EE5 /* MenuTableViewController.swift */,
@@ -329,6 +332,7 @@
 				3AFC5E8E1C5CD71300606EE5 /* AppStyles.swift in Sources */,
 				3A1F72D41C5CADF2004418D7 /* AppDelegate.swift in Sources */,
 				3AFC5E881C5CD5DF00606EE5 /* MenuItems.swift in Sources */,
+				3A4EF5DC1C6A0D0400BD363E /* MainTableViewController.swift in Sources */,
 				3AFC5E891C5CD5DF00606EE5 /* MenuTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
