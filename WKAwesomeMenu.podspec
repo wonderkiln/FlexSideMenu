@@ -1,15 +1,15 @@
-Pod::Spec.new do |s|
+Pod::Spec.new do |spec|
 
-    s.name = 'WKAwesomeMenu'
-    s.version = '1.0.3'
-    s.platform = :ios, '8.0'
-    s.license = 'MIT'
-    s.homepage = 'https://github.com/wonderkiln/WKAwesomeMenu'
-    s.author = { 'WonderKiln' => 'admin@wonderkiln.com' }
-    s.source = { :git => 'https://github.com/wonderkiln/WKAwesomeMenu.git', :tag => s.version.to_s }
-    s.summary = 'Awesome side menu for iOS written in Swift'
+    spec.name = 'WKAwesomeMenu'
+    spec.version = '1.0.3'
+    spec.platform = :ios, '8.0'
+    spec.license = 'MIT'
+    spec.homepage = 'https://github.com/wonderkiln/WKAwesomeMenu'
+    spec.author = { 'WonderKiln' => 'admin@wonderkiln.com' }
+    spec.source = { :git => 'https://github.com/wonderkiln/WKAwesomeMenu.git', :tag => 'v1.0.3' }
+    spec.summary = 'Awesome side menu for iOS written in Swift'
 
-    s.requires_arc = true
-    s.source_files = 'WKAwesomeMenu/*.{swift}'
+    spec.requires_arc = true
+    spec.source_files = 'WKAwesomeMenu/*.{swift}'
 
 end
