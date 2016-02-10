@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
     s.platform = :ios, '8.0'
     s.license = 'MIT'
     s.homepage = 'https://github.com/wonderkiln/WKAwesomeMenu'
-    s.author = { 'Adrian Mateoaea' => 'adrianitech@gmail.com' }
+    s.author = { 'WonderKiln' => 'admin@wonderkiln.com' }
     s.source = { :git => 'https://github.com/wonderkiln/WKAwesomeMenu.git', :tag => s.version.to_s }
     s.summary = 'Awesome side menu for iOS written in Swift'
 
