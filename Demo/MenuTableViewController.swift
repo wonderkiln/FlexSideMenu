@@ -28,6 +28,13 @@ class MenuTableViewController: UITableViewController {
             forCellReuseIdentifier: "MenuTableViewCell")
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0),
+            animated: false, scrollPosition: UITableViewScrollPosition.Top)
+    }
+    
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,21 +56,9 @@ class MenuTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let vc = UIViewController()
-        let x = CGFloat(indexPath.row) / 5.0
-        vc.view.backgroundColor = UIColor(red: x, green: x, blue: x, alpha: 1)
-        if indexPath.row == 0 {
-            let vc1 = UIViewController()
-            vc1.view.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.98, alpha:1)
-            vc1.title = "YOUR PROFILE"
-            vc1.navigationItem.leftBarButtonItem = UIBarButtonItem(image: Image.menuImage,
-                style: UIBarButtonItemStyle.Plain, target: self, action: "")
-            vc1.navigationItem.rightBarButtonItem = UIBarButtonItem(image: Image.addImage,
-                style: UIBarButtonItemStyle.Plain, target: self, action: "")
-            self.changeViewController(UINavigationController(rootViewController: vc1))
-        } else {
-            self.changeViewController(vc)
-        }
+        let rootVC = MainTableViewController()
+        let rootNC = UINavigationController(rootViewController: rootVC)
+        self.changeViewController(rootNC)
     }
 
 }
