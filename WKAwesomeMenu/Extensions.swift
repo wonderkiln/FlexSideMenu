@@ -19,14 +19,14 @@ extension UIViewController {
     }
     
     public func changeViewController(vc: UIViewController) {
-        self.awesomeMenu?.changeRootViewController(vc)
+        self.awesomeMenu?.changeRootViewController(vc: vc)
     }
     
     var awesomeMenu: WKAwesomeMenu? {
-        if let nc = self.parentViewController as? UINavigationController {
-            return nc.parentViewController as? WKAwesomeMenu
+        if let nc = self.parent as? UINavigationController {
+            return nc.parent as? WKAwesomeMenu
         }
-        return self.parentViewController as? WKAwesomeMenu
+        return self.parent as? WKAwesomeMenu
     }
     
 }
