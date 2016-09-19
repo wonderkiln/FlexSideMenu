@@ -20,7 +20,7 @@ class ProgressTimer: NSObject {
     
     var callback: ((CGFloat) -> Void)?
     
-    static func createWithDuration(duration: TimeInterval, from: CGFloat = 0, inverse: Bool = false, callback: @escaping (CGFloat) -> Void) {
+    static func createWithDuration(_ duration: TimeInterval, from: CGFloat = 0, inverse: Bool = false, callback: @escaping (CGFloat) -> Void) {
         let timer = ProgressTimer()
         timer.animationDuration = duration
         timer.animationFrom = inverse ? 1 - from : from
@@ -31,11 +31,11 @@ class ProgressTimer: NSObject {
     
     func start() {
         self.startTime = CACurrentMediaTime()
-        let link = CADisplayLink(target: self, selector: Selector(("tick:")))
+        let link = CADisplayLink(target: self, selector: #selector(ProgressTimer.tick(_:)))
         link.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
     }
     
-    func tick(link: CADisplayLink) {
+    func tick(_ link: CADisplayLink) {
         let elapsed = link.timestamp - self.startTime
         var percent = self.animationFrom + CGFloat((elapsed / self.animationDuration))
         

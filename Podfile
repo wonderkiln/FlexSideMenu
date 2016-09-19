@@ -8,6 +8,5 @@ target 'WKAwesomeMenu' do
 end
 
 target 'Demo' do
-pod 'SnapKit'
+    pod 'SnapKit', :git => 'git@github.com:SnapKit/SnapKit.git', :branch => 'feature/0.40.0'
 end
-

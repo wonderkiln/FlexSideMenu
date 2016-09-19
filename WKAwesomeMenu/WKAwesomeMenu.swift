@@ -8,25 +8,25 @@
 
 import UIKit
 
-public class WKAwesomeMenu: UIViewController {
+open class WKAwesomeMenu: UIViewController {
     
     // MARK: - Private Variables
     
-    private var rootViewController: UIViewController!
+    fileprivate var rootViewController: UIViewController!
     
-    private var menuViewController: UIViewController!
+    fileprivate var menuViewController: UIViewController!
     
-    private var rootView: UIView! // TODO: fix no user interaction while menu is open
+    fileprivate var rootView: UIView! // TODO: fix no user interaction while menu is open
     
-    private var menuView: UIView!
+    fileprivate var menuView: UIView!
     
-    private var shadowView: UIView = UIView()
+    fileprivate var shadowView: UIView = UIView()
     
-    private var canSlide: Bool = false
+    fileprivate var canSlide: Bool = false
     
-    private var lastTranslation = CGPoint.zero
+    fileprivate var lastTranslation = CGPoint.zero
     
-    private var lightStatusBar: Bool = false {
+    fileprivate var lightStatusBar: Bool = false {
         didSet {
             self.setNeedsStatusBarAppearanceUpdate()
         }
@@ -68,7 +68,7 @@ public class WKAwesomeMenu: UIViewController {
         
         self.setupUI()
         
-        let pan = UIPanGestureRecognizer(target: self, action: Selector(("pan:")))
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(WKAwesomeMenu.pan(_:)))
         pan.minimumNumberOfTouches = 1
         pan.maximumNumberOfTouches = 1
         self.view.addGestureRecognizer(pan)
@@ -133,7 +133,7 @@ public class WKAwesomeMenu: UIViewController {
     
     // MARK: - Internal
     
-    func pan(pan: UIPanGestureRecognizer) {
+    func pan(_ pan: UIPanGestureRecognizer) {
         
         let translation = pan.translation(in: self.view)
         let velocity = pan.velocity(in: self.view)
@@ -157,19 +157,19 @@ public class WKAwesomeMenu: UIViewController {
             let duration = Double(min(0.5, self.options.menuWidth / abs(velocity.x)))
             let percentage = locationX / self.options.menuWidth
             
-            ProgressTimer.createWithDuration(duration: duration, from: percentage, inverse: shouldClose, callback: { (p) -> Void in
-                self.invalidateRootViewWithPercentage(percentage: p)
+            ProgressTimer.createWithDuration(duration, from: percentage, inverse: shouldClose, callback: { (p) -> Void in
+                self.invalidateRootViewWithPercentage(p)
             })
         case UIGestureRecognizerState.changed:
             if !self.canSlide { break }
-            self.invalidateRootViewWithPercentage(percentage: locationX / self.options.menuWidth)
+            self.invalidateRootViewWithPercentage(locationX / self.options.menuWidth)
             self.lastTranslation = translation
         default:
             break
         }
     }
     
-    func invalidateRootViewWithPercentage(percentage: CGFloat) {
+    func invalidateRootViewWithPercentage(_ percentage: CGFloat) {
         
         let radius = self.options.cornerRadius * percentage
         let scale = 1 - (1 - self.options.rootScale) * percentage
@@ -197,7 +197,7 @@ public class WKAwesomeMenu: UIViewController {
     
     // MARK: - Public
     
-    func changeRootViewController(vc: UIViewController, withAnimationDuration duration: TimeInterval = 0.2) {
+    func changeRootViewController(_ vc: UIViewController, withAnimationDuration duration: TimeInterval = 0.2) {
         let transform = self.rootView?.transform ?? CGAffineTransform.identity
         let radius = self.rootView?.layer.cornerRadius ?? 0
         
@@ -225,48 +225,48 @@ public class WKAwesomeMenu: UIViewController {
         }
     }
     
-    public func openMenu() {
-        self.openMenuWithDuration(duration: 0.2)
+    open func openMenu() {
+        self.openMenuWithDuration(0.2)
     }
     
-    public func openMenuWithDuration(duration: TimeInterval) {
+    open func openMenuWithDuration(_ duration: TimeInterval) {
         if !self.isClosed { return }
         
         self.isClosed = false
         self.lightStatusBar = true
         self.lastTranslation = CGPoint(x: self.options.menuWidth, y: 0)
         
-        ProgressTimer.createWithDuration(duration: duration, callback: { (p) -> Void in
-            self.invalidateRootViewWithPercentage(percentage: p)
+        ProgressTimer.createWithDuration(duration, callback: { (p) -> Void in
+            self.invalidateRootViewWithPercentage(p)
         })
     }
     
-    public func closeMenu() {
-        self.closeMenuWithDuration(duration: 0.2)
+    open func closeMenu() {
+        self.closeMenuWithDuration(0.2)
     }
     
-    public func closeMenuWithDuration(duration: TimeInterval) {
+    open func closeMenuWithDuration(_ duration: TimeInterval) {
         if self.isClosed { return }
         
         self.isClosed = true
         self.lightStatusBar = false
         self.lastTranslation = CGPoint.zero
         
-        ProgressTimer.createWithDuration(duration: duration, from: 1, inverse: true, callback: { (p) -> Void in
-            self.invalidateRootViewWithPercentage(percentage: p)
+        ProgressTimer.createWithDuration(duration, from: 1, inverse: true, callback: { (p) -> Void in
+            self.invalidateRootViewWithPercentage(p)
         })
     }
     
     // MARK: - Override
     
-    override public var preferredStatusBarStyle: UIStatusBarStyle {
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
         return self.lightStatusBar ? UIStatusBarStyle.lightContent : self.rootViewController.preferredStatusBarStyle
     }
 
-    override public var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+    override open var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
         return self.rootViewController.preferredStatusBarUpdateAnimation
     }
-    override public var prefersStatusBarHidden: Bool {
+    override open var prefersStatusBarHidden: Bool {
         return self.rootViewController.prefersStatusBarHidden
     }
     

@@ -18,8 +18,8 @@ extension UIViewController {
         self.awesomeMenu?.closeMenu()
     }
     
-    public func changeViewController(vc: UIViewController) {
-        self.awesomeMenu?.changeRootViewController(vc: vc)
+    public func changeViewController(_ vc: UIViewController) {
+        self.awesomeMenu?.changeRootViewController(vc)
     }
     
     var awesomeMenu: WKAwesomeMenu? {
