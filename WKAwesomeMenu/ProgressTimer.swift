@@ -10,7 +10,7 @@ import UIKit
 
 class ProgressTimer: NSObject {
     
-    var animationDuration: NSTimeInterval = 0.5
+    var animationDuration: TimeInterval = 0.5
     
     var animationFrom: CGFloat = 0
     
@@ -20,7 +20,7 @@ class ProgressTimer: NSObject {
     
     var callback: ((CGFloat) -> Void)?
     
-    static func createWithDuration(duration: NSTimeInterval, from: CGFloat = 0, inverse: Bool = false, callback: (CGFloat) -> Void) {
+    static func createWithDuration(duration: TimeInterval, from: CGFloat = 0, inverse: Bool = false, callback: @escaping (CGFloat) -> Void) {
         let timer = ProgressTimer()
         timer.animationDuration = duration
         timer.animationFrom = inverse ? 1 - from : from
@@ -31,8 +31,8 @@ class ProgressTimer: NSObject {
     
     func start() {
         self.startTime = CACurrentMediaTime()
-        let link = CADisplayLink(target: self, selector: "tick:")
-        link.addToRunLoop(NSRunLoop.mainRunLoop(), forMode: NSRunLoopCommonModes)
+        let link = CADisplayLink(target: self, selector: Selector(("tick:")))
+        link.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
     }
     
     func tick(link: CADisplayLink) {
