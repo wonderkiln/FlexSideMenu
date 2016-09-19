@@ -43,11 +43,11 @@ struct Image {
 
 struct Font {
     
-    static let textFieldFont  = UIFont.boldSystemFontOfSize(14)
+    static let textFieldFont  = UIFont.boldSystemFont(ofSize: 14)
     
-    static let buttonLinkFont = UIFont.systemFontOfSize(13)
-    static let buttonFont     = UIFont.boldSystemFontOfSize(15)
+    static let buttonLinkFont = UIFont.systemFont(ofSize: 13)
+    static let buttonFont     = UIFont.boldSystemFont(ofSize: 15)
     
-    static let menuLabelFont  = UIFont.systemFontOfSize(16)
+    static let menuLabelFont  = UIFont.systemFont(ofSize: 16)
     
 }

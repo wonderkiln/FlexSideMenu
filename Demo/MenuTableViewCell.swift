@@ -24,12 +24,12 @@ class MenuTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         
         self.separatorView = UIImageView()
         self.separatorView.image = UIImage(named: "separator")
         self.addSubview(self.separatorView)
-        self.separatorView.snp_makeConstraints { (make) -> Void in
+        self.separatorView.snp.makeConstraints { (make) -> Void in
             make.leading.equalTo(self)
             make.trailing.equalTo(self)
             make.bottom.equalTo(self)
@@ -37,37 +37,37 @@ class MenuTableViewCell: UITableViewCell {
         }
         
         self.selectionView = UIImageView()
-        self.selectionView.hidden = true
+        self.selectionView.isHidden = true
         self.selectionView.image = UIImage(named: "selection")
         self.addSubview(self.selectionView)
-        self.selectionView.snp_makeConstraints { (make) -> Void in
+        self.selectionView.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(self)
         }
 
         self.iconView = UIImageView()
-        self.iconView.tintColor = UIColor.whiteColor()
+        self.iconView.tintColor = UIColor.white
         self.addSubview(self.iconView)
-        self.iconView.snp_makeConstraints { (make) -> Void in
+        self.iconView.snp.makeConstraints { (make) -> Void in
             make.leading.equalTo(self).offset(40)
             make.centerY.equalTo(self)
         }
         
         self.titleLabel = UILabel()
-        self.titleLabel.textColor = UIColor.whiteColor()
+        self.titleLabel.textColor = UIColor.white
         self.titleLabel.font = Font.menuLabelFont
-        self.titleLabel.setContentHuggingPriority(249, forAxis: UILayoutConstraintAxis.Horizontal)
+        self.titleLabel.setContentHuggingPriority(249, for: UILayoutConstraintAxis.horizontal)
         self.addSubview(self.titleLabel)
-        self.titleLabel.snp_makeConstraints { (make) -> Void in
-            make.leading.equalTo(self.iconView.snp_trailing).offset(20)
+        self.titleLabel.snp.makeConstraints { (make) -> Void in
+            make.leading.equalTo(self.iconView.snp.trailing).offset(20)
             make.centerY.equalTo(self)
         }
         
         self.circleView = UIView()
-        self.circleView.transform = CGAffineTransformMakeTranslation(-5, 0)
-        self.circleView.backgroundColor = UIColor.whiteColor()
+        self.circleView.transform = CGAffineTransform(translationX: -5, y: 0)
+        self.circleView.backgroundColor = UIColor.white
         self.circleView.layer.cornerRadius = 5
         self.addSubview(self.circleView)
-        self.circleView.snp_makeConstraints { (make) -> Void in
+        self.circleView.snp.makeConstraints { (make) -> Void in
             make.leading.equalTo(self).offset(-5)
             make.centerY.equalTo(self)
             make.size.equalTo(10)
@@ -78,20 +78,20 @@ class MenuTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        self.selectionView.hidden = !selected
-        self.separatorView.hidden = selected
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        self.selectionView.isHidden = !selected
+        self.separatorView.isHidden = selected
         
-        UIView.animateWithDuration(0.4) { () -> Void in
+        UIView.animate(withDuration: 0.4, animations: { () -> Void in
             if selected {
-                self.circleView.transform = CGAffineTransformIdentity
+                self.circleView.transform = CGAffineTransform.identity
             } else {
-                self.circleView.transform = CGAffineTransformMakeTranslation(-5, 0)
+                self.circleView.transform = CGAffineTransform(translationX: -5, y: 0)
             }
-        }
+        }) 
     }
     
-    override func setHighlighted(highlighted: Bool, animated: Bool) {
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         //
     }
 
