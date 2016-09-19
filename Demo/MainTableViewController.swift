@@ -17,26 +17,28 @@ class MainTableViewController: UITableViewController {
         self.view.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.98, alpha:1)
         self.title = "HOME"
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: Image.menuImage,
-            style: UIBarButtonItemStyle.Plain, target: self, action: "menu")
+                                                                style: UIBarButtonItemStyle.plain,
+                                                                target: self,
+                                                                action: #selector(MainTableViewController.menu))
     }
     
     func menu() {
         self.openSideMenu()
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 100
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
         
-        cell.textLabel?.text = "Item number \(indexPath.row)"
+        cell.textLabel?.text = "Item number \((indexPath as NSIndexPath).row)"
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
     

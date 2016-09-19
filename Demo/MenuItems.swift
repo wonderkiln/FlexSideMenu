@@ -10,18 +10,18 @@ import UIKit
 
 struct MenuItems {
     
-    private let titles = ["Home", "Notifications", "Reviews", "Settings", "Help"]
-    private let icons  = [Image.homeImage, Image.notifImage, Image.reviewsImage, Image.settingsImage, Image.helpImage]
+    fileprivate let titles = ["Home", "Notifications", "Reviews", "Settings", "Help"]
+    fileprivate let icons  = [Image.homeImage, Image.notifImage, Image.reviewsImage, Image.settingsImage, Image.helpImage]
     
     var count: Int {
         return self.titles.count
     }
     
-    func getTitle(index: Int) -> String {
+    func getTitle(_ index: Int) -> String {
         return self.titles[index]
     }
     
-    func getIcon(index: Int) -> UIImage {
+    func getIcon(_ index: Int) -> UIImage {
         return self.icons[index]
     }
     

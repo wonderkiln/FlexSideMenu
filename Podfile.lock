@@ -1,10 +1,22 @@
 PODS:
-  - SnapKit (0.19.1)
+  - SnapKit (0.40.0.beta4)
 
 DEPENDENCIES:
-  - SnapKit
+  - SnapKit (from `git@github.com:SnapKit/SnapKit.git`, branch `feature/0.40.0`)
+
+EXTERNAL SOURCES:
+  SnapKit:
+    :branch: feature/0.40.0
+    :git: git@github.com:SnapKit/SnapKit.git
+
+CHECKOUT OPTIONS:
+  SnapKit:
+    :commit: 25bd7dab9e0a2aec5c7867b1fc9135857425ad84
+    :git: git@github.com:SnapKit/SnapKit.git
 
 SPEC CHECKSUMS:
-  SnapKit: eff58d6e3451bf2f482db2eccf86aecf371dc62d
+  SnapKit: 2eb32fcdca2206e611ef40d2650fe19b7469c91b
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: bc1172f176160351f140397c4f9e510328c6f977
+
+COCOAPODS: 1.0.1
