@@ -1,9 +1,6 @@
-# WKAwesomeMenu
+![Flexible Side Menu Header](.repo/flexible-side-menu-header.png)
 
-Initial project for the WonderKiln Side Menu that is used throughout our projects.
-
-#### Origins
-This was originally a forked copy of https://github.com/Friend-LGA/LGSideMenuController -- however due to planned changes and extensive usage we are running it as an independent repository.
+Flexible Tab Bar is a custom approach to the tab bar that allows you to create different views for different *orientations*/*devices* or *states*. iOS default `UITabBar` is limited and it is really hard to customize it for different device states.
 
 ## Preview
 
@@ -48,3 +45,7 @@ var menuWidth: CGFloat
 var menuParallax: CGFloat
 var menuGripWidth: CGFloat
 ```
+
+## Credit
+
+## License
