@@ -46,6 +46,7 @@ var menuParallax: CGFloat
 var menuGripWidth: CGFloat
 ```
 
-## Credit
+## Credits
+[Adrian Mateoaea](https://github.com/adrianitech)
 
 ## License
